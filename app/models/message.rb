@@ -4,7 +4,7 @@ class Message < ActiveRecord::Base
 private
 
   def send_sms
-    RestClient::Request.new(
+    response = RestClient::Request.new(
     :method => :post,
     :url => 'https://api.twilio.com/2010-04-01/Accounts/AC2cd72426b9374437b8d0ca170b60c28c/Messages.json',
     :user => 'AC2cd72426b9374437b8d0ca170b60c28c',
