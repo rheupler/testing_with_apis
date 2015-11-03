@@ -1,0 +1,26 @@
+<h1>New message</h1>
+
+<% if @message.errors.any? %>
+  <p>
+    Something went wrong.
+  </p>
+  <%= @message.errors.full_messages.each do |message| %>
+    <ul>
+    <li><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<%= form_tag @message do  %>
+  <%= label_tag :to, "To" %>
+  <%= hidden_field_tag :to, :value => "Hello" %>
+  <% if @contacts.any? %>
+    <% contacts_array = Contact.all.map { |contact| [contact.number] } %>
+    <%= select_tag(:contact, options_for_select(contacts_array)) %>
+  <% end %>
+  <%= label_tag :from, "From" %>
+  <%= text_field_tag :from %>
+  <%= label_tag :body, "Message" %>
+  <%= text_field_tag :body %>
+  <%= submit_tag("Send") %>
+<% end %>

@@ -16,6 +16,7 @@ gem 'hirb'
 gem 'bootstrap-sass'
 gem 'twilio-ruby'
 gem 'rest-client'
+gem 'pry'
 
 group :development, :test do
   gem 'dotenv-rails'
